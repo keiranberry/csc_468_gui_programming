@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - If I Fits I Sits</title>
+    <link rel="stylesheet" href="help.css">
+    <link rel="stylesheet" href="common.css">
+    <script src="historyManager.js"></script>
+    <script src="eventHandler.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>If I Fits I Sits</h1>
+        <div id="navigation-bar">
+            <a id="home-link" href="main.html">Home</a>
+            <a href="files.html">Files</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div id="theme-buttons">
+            <button onclick="setTheme('dark')">Purple Theme</button>
+            <button onclick="setTheme('light')">Blue Theme</button>
+        </div>
+    </div>
+    <ul>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#css-modifications">CSS Modifications</a></li>
+        <li><a href="#program-usage">Program Usage</a></li>
+    </ul>
+    <h2 id="description">Description</h2>
+    <p>
+        If I Fits I Sits allows users to simulate building a cat tree, 
+        with 6 unique components and simple controls.
+        <br><br>
+        Made by Keiran Berry for CSC 468
+    </p>
+    <h2 id="checklist">Checklist</h2>
+    <p>
+        RENDER URL: https://berry-keiran.onrender.com<br><br>
+
+        _X_ *Grading tags completed<br><br>
+
+        Undo/redo pattern (tier-less)*	30<br>
+        __X_ a. Undo/redo OOP followed <br>
+        __X_ b. Able to do at least 1 undo/redo for change<br>
+        __X_ c. Able to do at least 1 undo/redo for 1 preconfigured change <br>
+        __X_ d. Able to do at least 5 undo/redo for change <br>
+        __X_ f. Able to do at least 5 undo/redo for 1 preconfigured change <br><br><br>
+
+
+        1.	Tier: Basic content	36<br>
+        __X_ a. All 3 pages present	<br>
+        __X_ b. Header in all pages in correct spot	<br>
+        __X_ c. Nav bar in all pages in correct spot	<br>
+        __X_ d. All interaction buttons added to main page in correct spot	<br>
+        __X_ e. Properly display the default content in main page in correct spot	<br>
+        __X_ f. At minimum, a place holder for file upload/load/download in file page in correct spot <br>
+        __X_ h. All headings added to Help page in correct order	<br>
+        __X_ i. Help page content filled in	<br>
+        __X_ j. Within page link help page working	<br><br>
+
+        2a. Basic application tasks	28<br>
+        __X_ a. Able to change a component in first row  <br>
+        __X_ b. New row adds a row<br>
+        __X_ c. Able to change components in new rows<br><br><br>
+
+        2b. CSS rules*	18<br>
+        __X_ a. Background color/image	<br>
+        __X_ b. CSS header	<br>
+        __X_ c. CSS nav bar color/image	<br>
+        __X_ d. CSS a rule	<br>
+        __X_ f. Content border	<br>
+        __X_ g. Help heading font change<br><br><br>
+            
+
+        3a More advanced main page options *	18	<br>
+        __X_ a. Able to change to preconfigured options <br>
+        __X_ b. Main content area unaffected by save, and stays on page <br><br>	
+
+        3b Tier: Files	40<br>
+        __X_ a. Able to save the current content (must show in file page)	<br>
+        __X_ b. Able to download at least one file (default is ok)	<br>
+        __X_ c. Able to download an application generated file	<br>
+        __X_ d. Able to upload a file	<br>
+        __X_ e. Loading a file redirects back to the main page	<br>
+        __X_ f. Loading properly displays with app generated file<br>
+        __X_ g. Able to save, download, upload, and load that same file<br><br>
+
+        4 Tier: Extensions	30<br>
+        Extension 1: 1a - 5 points - Use CSS feature not talked about in class: 
+        I decided to use CSS variables to make themes. There are theme buttons 
+        in the header of every page, so testing is as simple as trying them out! 
+        I learned about CSS variables in my summer internship, where I made an 
+        HTML, CSS, and JS application.<br><br>
+        Extension 2: 1b - 5 points - Make a fancy page background: I made a gradient 
+        background for the website. It is visible on every page.<br><br>
+        Extension 3: 2b - 5 points - Add a delete row button: I added a delete row 
+        button which can be seen and used on the main page. This removes a row from 
+        the bottom of the tree. Testing just requires using the application!<br><br>
+        Extension 4: 2d - 10 points - Allow drag and drop for file upload: I added 
+        the ability to drag and drop to the file picker. The file must be dragged and 
+        dropped onto the file picker, but you can simply try dragging and dropping a 
+        file to test it!<br><br>
+        Extension 5: 3a - 5 points - Make 3+ more components available: I made 3 additional 
+        components available for the cat tree: ramp, bed, and toy. These all can 
+        be cycled to just the same as the original three are.
+    </p>
+    <h2 id="css-modifications">CSS Modifications</h2>
+    <p>
+        <h3>Custom Background</h3>
+        <p>
+            I added a gradient background which can be seen on each page of the application.
+        </p>
+        <a href="#header"><h3>Custom CSS Header</h3></a>
+        <p>
+            I made a custom header, available at the top of every page. The CSS styles for 
+            this header are available in the common.css file. This header has id "header" 
+            in each html file.
+        </p>
+        <a href="#navigation-bar"><h3>Navigation Bar Background Color</h3></a>
+        <p>
+            I added a custom background color to the navigation bar. This color also changes 
+            to match the selected theme of the application.
+        </p>
+        <a href="#home-link"><h3>Custom Link Rule</h3></a>
+        <p>
+            I added custom CSS rules to the a tag, including padding, margins, and hover 
+            styles so that the links resemble buttons. This can be seen with many of the 
+            headings in this section, or the links in the navigation bar.
+        </p>
+        <a href="main.html#tree-sim-area"><h3>Main Content Area Border</h3></a>
+        <p>
+            I added a white border to the simulation area of the main page. This highlights the 
+            whole area. This does not change with the theme, as I liked the white best in either 
+            case.
+        </p>
+        <h3>Help Page Headings Font Change</h3>
+        <p>
+            All of the headings on the help page are Oswald font, which I imported from Google fonts. 
+            This import can be found in help.css.
+        </p>
+    </p>
+    <h2 id="program-usage">Program Usage</h2>
+    <p>
+        Main Page <br><br>
+        The main page of this application is a cat tree simulator. The simulator starts 
+        by default with a row of empty components. There are 6 component types that the 
+        user can cycle through by pressing the buttons in the simulation area. At the top 
+        of the simulation area, there are buttons for the user to add a new row, delete a 
+        row, undo or redo changes made, reset the simulator, or set the simulator to a 
+        preconfigured option. The user can also save to the server from here. When saving 
+        is completed, an alert will pop up letting the user know that the tree has been 
+        saved. <br><br><br>
+
+        File Management <br><br>
+        This application supports one file to be saved on the server at a time, which the 
+        user can save to using the "save" button. The server file can then 
+        be loaded from the files page. The user can also download the 
+        server file, and upload their own JSON cat tree files. The upload 
+        functionality works best with downloaded files from the application, 
+        as they are guaranteed to be formatted correctly. To upload a file, 
+        simply select one using the file picker or drag and drop a JSON file 
+        onto the file picker! Then, press the load button and it will load the file 
+        which was selected!
+    </p>
+</body>
+</html>

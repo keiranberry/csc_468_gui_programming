@@ -1,0 +1,14 @@
+#tree-sim-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide the area into three equal columns */
+    width: 50%;
+    border: 2px solid white;
+}
+
+#tree-sim-area button {
+    grid-column: span 1; /* Each button spans one grid column */
+}
+
+#main-buttons {
+    margin: 10px 10px 10px 10px;
+}

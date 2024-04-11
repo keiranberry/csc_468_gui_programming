@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files - If I Fits I Sits</title>
+    <link rel="stylesheet" href="files.css">
+    <link rel="stylesheet" href="common.css">
+    <script src="historyManager.js"></script>
+    <script src="eventHandler.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>If I Fits I Sits</h1>
+        <div id="navigation-bar">
+            <a href="main.html">Home</a>
+            <a href="files.html">Files</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div id="theme-buttons">
+            <button onclick="setTheme('dark')">Purple Theme</button>
+            <button onclick="setTheme('light')">Blue Theme</button>
+        </div>
+    </div>
+    <p>Choose a File, or Drop One In!</p>
+    <div id="header-buttons">
+        <input type="file" id="file-picker" accept=".json">
+        <button onclick="loadLocalFile()">Load</button>
+        <button onclick="getServerFile()">Load Server File</button>
+        <button onclick="downloadServerFile()">Download</button>
+    </div>
+</body>
+</html>

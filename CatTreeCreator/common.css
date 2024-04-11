@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root,
+:root.dark {
+    --primary-color: #1B1A55;
+    --secondary-color: #9290C3;
+    --button-color: #535C91;
+    --links-color: #070F2B;
+    --text-color: #ffffff;
+}
+:root.light {
+    --secondary-color: #365486;
+    --primary-color: #0F1035;
+    --button-color: #DCF2F1;
+    --links-color: #7FC7D9;
+    --text-color: #000000;
+}
+
+/*Custom CSS Header shared across pages*/
+#header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    width: 60%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#header h1 {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+a, h3 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: var(--links-color);
+}
+
+a h3{
+    padding: 0px 0px;
+    background-color: transparent;
+}
+
+li a {
+    padding: 0px 0px;
+    margin: 0;
+    background-color: transparent;
+}
+
+#navigation-bar {
+    background-color: var(--links-color);
+    width: 35%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#theme-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px 10px 10px;
+}
+
+#theme-buttons button {
+    width: 100px;
+    margin: 5px;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+}
+
+button, input {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: var(--links-color);
+}
+
+button:disabled:hover{
+    background-color: var(--button-color);
+}
+
+p {
+    background-color: var(--links-color);
+    color: var(--text-color);
+}

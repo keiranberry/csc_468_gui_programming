@@ -1,0 +1,16 @@
+{
+  "name": "berry-keiran-gui-web-2024",
+  "version": "1.0.0",
+  "description": "Package for Cat Tree Sim",
+  "main": "mainServer.js",
+  "scripts": {
+    "start": "node mainServer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "formidable": "^3.5.1",
+    "mustache": "^4.2.0"
+  }
+}
