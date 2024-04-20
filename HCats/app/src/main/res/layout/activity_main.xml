@@ -5,15 +5,132 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/border_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <view class="edu.sdsmt.hcats_berry_keiran.GameAreaView"
+        android:id="@+id/gameArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent=".9" />
+
+    <TextView
+        android:id="@+id/movesLabel"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/moves"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/caughtLabel"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/caught"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movesLabel" />
+
+    <TextView
+        android:id="@+id/treatLabel"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/treats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/caughtLabel" />
+
+    <TextView
+        android:id="@+id/moves"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/number_placeholder"
+        app:layout_constraintStart_toEndOf="@id/movesLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/caught"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/number_placeholder"
+        app:layout_constraintStart_toEndOf="@id/caughtLabel"
+        app:layout_constraintTop_toBottomOf="@id/moves" />
+
+    <TextView
+        android:id="@+id/treats"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/number_placeholder"
+        app:layout_constraintStart_toEndOf="@id/treatLabel"
+        app:layout_constraintTop_toBottomOf="@id/caught" />
+
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        app:layout_constraintBottom_toTopOf="@id/gameArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/treatBtn" />
+
+    <Button
+        android:id="@+id/treatBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/treat"
+        app:layout_constraintBottom_toTopOf="@id/gameArea"
+        app:layout_constraintStart_toEndOf="@id/resetBtn"
+        app:layout_constraintEnd_toStartOf="@id/downBtn" />
+
+    <Button
+        android:id="@+id/downBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/down"
+        app:layout_constraintBottom_toTopOf="@id/gameArea"
+        app:layout_constraintStart_toEndOf="@id/treatBtn"
+        app:layout_constraintEnd_toStartOf="@id/rightBtn" />
+
+    <Button
+        android:id="@+id/rightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/right"
+        app:layout_constraintBottom_toTopOf="@id/gameArea"
+        app:layout_constraintStart_toEndOf="@id/downBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/moves" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
