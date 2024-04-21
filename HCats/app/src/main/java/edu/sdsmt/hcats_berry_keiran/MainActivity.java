@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Button;
+import android.content.res.Configuration;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         treatBtn.setOnClickListener(v -> {
+            Log.d("treatBtn", "treat button clicked");
             this.stateMachine.useTreat();
             updateViews();
         });
@@ -136,9 +138,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFABMenu(){
         this.isFABOpen = true;
-        redBtn.animate().translationX(-dpToPixels(60));
-        purpleBtn.animate().translationX(-dpToPixels(110));
-        blackBtn.animate().translationX(-dpToPixels(160));
+
+        int orientation = getResources().getConfiguration().orientation;
+
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            redBtn.animate().translationX(-dpToPixels(60));
+            purpleBtn.animate().translationX(-dpToPixels(110));
+            blackBtn.animate().translationX(-dpToPixels(160));
+        } else {
+            redBtn.animate().translationY(-dpToPixels(60));
+            purpleBtn.animate().translationY(-dpToPixels(110));
+            blackBtn.animate().translationY(-dpToPixels(160));
+        }
         redBtn.animate().alpha(1f);
         purpleBtn.animate().alpha(1f);
         blackBtn.animate().alpha(1f);
@@ -149,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
         redBtn.animate().translationX(0);
         purpleBtn.animate().translationX(0);
         blackBtn.animate().translationX(0);
+        redBtn.animate().translationY(0);
+        purpleBtn.animate().translationY(0);
+        blackBtn.animate().translationY(0);
         redBtn.animate().alpha(0);
         purpleBtn.animate().alpha(0);
         blackBtn.animate().alpha(0);
