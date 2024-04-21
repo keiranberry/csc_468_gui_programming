@@ -3,6 +3,7 @@ package edu.sdsmt.hcats_berry_keiran;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -30,13 +31,22 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton purpleBtn;
     private FloatingActionButton blackBtn;
     private FloatingActionButton colorBtn;
+    private static final String GAME_STATE = "game_state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.game = new Game();
-        this.stateMachine = new StateMachine(this.game);
-        this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
+        if (savedInstanceState != null) {
+            this.game = savedInstanceState.getParcelable(GAME_STATE);
+            if (this.game != null) {
+                this.stateMachine = new StateMachine(this.game);
+                this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
+            }
+        } else {
+            this.game = new Game();
+            this.stateMachine = new StateMachine(this.game);
+            this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
+        }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         this.gameAreaView = findViewById(R.id.gameArea);
@@ -166,5 +176,12 @@ public class MainActivity extends AppCompatActivity {
         redBtn.animate().alpha(0);
         purpleBtn.animate().alpha(0);
         blackBtn.animate().alpha(0);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+
+        bundle.putParcelable(GAME_STATE, this.game);
     }
 }

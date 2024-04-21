@@ -1,6 +1,11 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-public class Game {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Game implements Parcelable {
     private final int GRID_SIZE = 3;
     private final int STARTING_CATS = 40;
     private int moves = 15;
@@ -14,6 +19,10 @@ public class Game {
             {5, 5, 5},
             {5, 5, 0}
     };
+
+    public Game(){
+        //initialize with default values
+    }
 
     public int getMoves() {
         return this.moves;
@@ -110,5 +119,48 @@ public class Game {
                 {5, 5, 5},
                 {5, 5, 0}
         };
+    }
+
+    public static final Parcelable.Creator<Game> CREATOR = new Parcelable.Creator<Game>() {
+        @Override
+        public Game createFromParcel(Parcel source) {
+            return new Game(source);
+        }
+
+        @Override
+        public Game[] newArray(int size) {
+            return new Game[size];
+        }
+    };
+
+    public Game(Parcel source) {
+        this.moves = source.readInt();
+        this.catsCaught = source.readInt();
+        this.totalCatsLeft = source.readInt();
+        this.treats = source.readInt();
+        this.treatActive = source.readInt() == 1;
+
+        this.grid = new int[GRID_SIZE][GRID_SIZE];
+        for (int i = 0; i < GRID_SIZE; i++) {
+            source.readIntArray(grid[i]);
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(moves);
+        dest.writeInt(catsCaught);
+        dest.writeInt(totalCatsLeft);
+        dest.writeInt(treats);
+        dest.writeInt(treatActive ? 1 : 0);
+
+        for (int i = 0; i < GRID_SIZE; i++) {
+            dest.writeIntArray(grid[i]);
+        }
     }
 }
