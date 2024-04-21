@@ -1,5 +1,6 @@
 package edu.sdsmt.hcats_berry_keiran;
 
+import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -13,6 +14,7 @@ public class Game implements Parcelable {
     private int totalCatsLeft = 40;
     private int treats = 3;
     private Boolean treatActive = false;
+    private int gameColor = Color.BLACK;
 
     private int[][] grid = {
             {5, 5, 5},
@@ -46,6 +48,14 @@ public class Game implements Parcelable {
 
     public int getHeight(){
         return this.grid[0].length;
+    }
+
+    public int getGameColor(){
+        return this.gameColor;
+    }
+
+    public void setGameColor(int color) {
+        this.gameColor = color;
     }
 
     public int getCatsAt(int row, int col) {
@@ -139,6 +149,7 @@ public class Game implements Parcelable {
         this.totalCatsLeft = source.readInt();
         this.treats = source.readInt();
         this.treatActive = source.readInt() == 1;
+        this.gameColor = source.readInt();
 
         this.grid = new int[GRID_SIZE][GRID_SIZE];
         for (int i = 0; i < GRID_SIZE; i++) {
@@ -153,14 +164,15 @@ public class Game implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(moves);
-        dest.writeInt(catsCaught);
-        dest.writeInt(totalCatsLeft);
-        dest.writeInt(treats);
-        dest.writeInt(treatActive ? 1 : 0);
+        dest.writeInt(this.moves);
+        dest.writeInt(this.catsCaught);
+        dest.writeInt(this.totalCatsLeft);
+        dest.writeInt(this.treats);
+        dest.writeInt(this.treatActive ? 1 : 0);
+        dest.writeInt(this.gameColor);
 
         for (int i = 0; i < GRID_SIZE; i++) {
-            dest.writeIntArray(grid[i]);
+            dest.writeIntArray(this.grid[i]);
         }
     }
 }

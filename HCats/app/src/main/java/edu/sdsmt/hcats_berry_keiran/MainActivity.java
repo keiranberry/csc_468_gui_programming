@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton colorBtn;
     private static final String GAME_STATE = "game_state";
 
+    //TODO: use treat activation/deactivation as entry and exit thing for state machine
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,14 +107,17 @@ public class MainActivity extends AppCompatActivity {
 
         redBtn.setOnClickListener(v -> {
             this.gameAreaView.setThemeColor(Color.RED);
+            this.game.setGameColor(Color.RED);
         });
 
         purpleBtn.setOnClickListener(v -> {
             this.gameAreaView.setThemeColor(Color.parseColor("#AA66CC"));
+            this.game.setGameColor(Color.parseColor("#AA66CC"));;
         });
 
         blackBtn.setOnClickListener(v -> {
             this.gameAreaView.setThemeColor(Color.BLACK);
+            this.game.setGameColor(Color.BLACK);
         });
     }
 
@@ -121,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         caughtTextView.setText(String.valueOf(game.getCatsCaught()));
         treatsTextView.setText(String.valueOf(game.getTreats()));
         this.gameAreaView.invalidate();
+        this.gameAreaView.setThemeColor(this.game.getGameColor());
     }
 
     public StateMachine getStateMachine() {
