@@ -6,11 +6,12 @@ public class StateMachine {
 
     public StateMachine(Game game) {
         this.game = game;
-        this.currentState = new HighCats(this, this.game);
+        this.currentState = new HighCats(this, this.game, null);
     }
 
     public void setState(State state) {
         this.currentState = state;
+        this.currentState.onEntry();
     }
 
     public String getCurrentStateName(){

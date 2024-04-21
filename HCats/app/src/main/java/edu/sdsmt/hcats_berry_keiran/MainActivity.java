@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.game = new Game();
         this.stateMachine = new StateMachine(this.game);
+        this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         this.gameAreaView = findViewById(R.id.gameArea);
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         resetBtn.setOnClickListener(v -> {
             game.reset();
-            this.stateMachine.setState(new HighCats(this.stateMachine, this.game));
+            this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
             updateViews();
         });
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateViews() {
+    public void updateViews() {
         movesTextView.setText(String.valueOf(game.getMoves()));
         caughtTextView.setText(String.valueOf(game.getCatsCaught()));
         treatsTextView.setText(String.valueOf(game.getTreats()));

@@ -1,11 +1,13 @@
 package edu.sdsmt.hcats_berry_keiran;
 
+import android.content.Context;
+
 public class LowCats extends State {
     private static final int MOVE_AMOUNT = 1;
     private static final int MOVE_PERCENT = 25;
 
-    public LowCats(StateMachine stateMachine, Game game) {
-        super(stateMachine, game);
+    public LowCats(StateMachine stateMachine, Game game, MainActivity mainActivity) {
+        super(stateMachine, game, mainActivity);
     }
 
     @Override
@@ -16,6 +18,7 @@ public class LowCats extends State {
 
     @Override
     public void sweepDown() {
+        //GRADING: SWEEP
         this.game.sweepDown(MOVE_AMOUNT, MOVE_PERCENT);
         checkTransition();
     }
@@ -24,13 +27,19 @@ public class LowCats extends State {
     public void useTreat() {
         if(this.game.getTreats() > 0){
             this.game.useTreat();
-            this.stateMachine.setState(new TreatActive(this.stateMachine, this.game));
+            //GRADING: TO_TREAT
+            this.stateMachine.setState(new TreatActive(this.stateMachine, this.game, this.mainActivity));
         }
+    }
+
+    @Override
+    public void onEntry(){
+        //does nothing in this state
     }
 
     private void checkTransition() {
         if (this.game.getMoves() < 0 || this.game.getCatsCaught() >= 40){
-            this.stateMachine.setState(new EndedState(this.stateMachine, this.game));
+            this.stateMachine.setState(new EndedState(this.stateMachine, this.game, this.mainActivity));
         }
     }
 }

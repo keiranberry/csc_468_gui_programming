@@ -1,11 +1,13 @@
 package edu.sdsmt.hcats_berry_keiran;
 
+import android.content.Context;
+
 public class HighCats extends State {
     private static final int MOVE_AMOUNT = 3;
     private static final int MOVE_PERCENT = 50;
 
-    public HighCats(StateMachine stateMachine, Game game) {
-        super(stateMachine, game);
+    public HighCats(StateMachine stateMachine, Game game, MainActivity mainActivity) {
+        super(stateMachine, game, mainActivity);
     }
 
     @Override
@@ -16,6 +18,7 @@ public class HighCats extends State {
 
     @Override
     public void sweepDown() {
+        //GRADING: SWEEP
         this.game.sweepDown(MOVE_AMOUNT, MOVE_PERCENT);
         checkTransition();
     }
@@ -25,15 +28,18 @@ public class HighCats extends State {
         //does nothing in this state
     }
 
+    @Override
+    public void onEntry(){
+        //does nothing in this state
+    }
+
     private void checkTransition() {
-        if (this.game.getMoves() < 0 || this.game.getCatsCaught() >= 40){
-            this.stateMachine.setState(new EndedState(this.stateMachine, this.game));
-        }
-        else if (this.game.getCatsCaught() > 20){
-            this.stateMachine.setState(new LowCats(this.stateMachine, this.game));
-        }
-        else if (this.game.getCatsCaught() > 10){
-            this.stateMachine.setState(new MidCats(this.stateMachine, this.game));
+        if (this.game.getMoves() < 0 || this.game.getCatsCaught() >= 40) {
+            this.stateMachine.setState(new EndedState(this.stateMachine, this.game, this.mainActivity));
+        } else if (this.game.getCatsCaught() > 20) {
+            this.stateMachine.setState(new LowCats(this.stateMachine, this.game, this.mainActivity));
+        } else if (this.game.getCatsCaught() > 10) {
+            this.stateMachine.setState(new MidCats(this.stateMachine, this.game, this.mainActivity));
         }
     }
 }
