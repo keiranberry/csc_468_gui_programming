@@ -50,21 +50,22 @@ public class MainActivity extends AppCompatActivity {
 
         resetBtn.setOnClickListener(v -> {
             game.reset();
+            this.stateMachine.setState(new HighCats(this.stateMachine, this.game));
             updateViews();
         });
 
         treatBtn.setOnClickListener(v -> {
-            //game.useTreat();
+            this.stateMachine.useTreat();
             updateViews();
         });
 
         downBtn.setOnClickListener(v -> {
-            game.sweepDown(3, 60);
+            this.stateMachine.sweepDown();
             updateViews();
         });
 
         rightBtn.setOnClickListener(v -> {
-            game.sweepRight(3, 60);
+            this.stateMachine.sweepRight();
             updateViews();
         });
     }

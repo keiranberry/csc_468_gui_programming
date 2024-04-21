@@ -6,16 +6,29 @@ public class StateMachine {
 
     public StateMachine(Game game) {
         this.game = game;
-        // Initialize with the HighCats state
-        currentState = new HighCatsState(game);
-        currentState.enterState();
+        this.currentState = new HighCats(this, this.game);
     }
 
-    public void transitionTo(State nextState) {
-        currentState.exitState();
-        currentState = nextState;
-        currentState.enterState();
+    public void setState(State state) {
+        this.currentState = state;
     }
 
-    // Add methods to handle button presses and update maintenance tasks
+    public String getCurrentStateName(){
+        return this.currentState.getClass().getName();
+    }
+
+    public void useTreat(){
+        this.currentState.useTreat();
+    }
+
+    public void sweepRight(){
+        System.out.println("------current state: " + this.currentState.getClass().getSimpleName());
+        System.out.println("cats caught: " + this.game.getCatsCaught());
+        this.currentState.sweepRight();
+    }
+
+    public void sweepDown(){
+        this.currentState.sweepDown();
+    }
+
 }
