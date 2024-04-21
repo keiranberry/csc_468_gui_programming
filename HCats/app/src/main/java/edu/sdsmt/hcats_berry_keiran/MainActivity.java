@@ -7,8 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.graphics.Color;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Button;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView movesTextView;
     private TextView caughtTextView;
     private TextView treatsTextView;
+    private boolean isFABOpen = false;
+    private FloatingActionButton redBtn;
+    private FloatingActionButton purpleBtn;
+    private FloatingActionButton blackBtn;
+    private FloatingActionButton colorBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         movesTextView = findViewById(R.id.moves);
         caughtTextView = findViewById(R.id.caught);
         treatsTextView = findViewById(R.id.treats);
+
+        redBtn = findViewById(R.id.redFloatingButton);
+        purpleBtn = findViewById(R.id.purpleFloatingButton);
+        blackBtn = findViewById(R.id.blackFloatingButton);
+        colorBtn = findViewById(R.id.editColors);
+        colorBtn.bringToFront();
 
         Button resetBtn = findViewById(R.id.resetBtn);
         Button treatBtn = findViewById(R.id.treatBtn);
@@ -69,6 +85,23 @@ public class MainActivity extends AppCompatActivity {
             this.stateMachine.sweepRight();
             updateViews();
         });
+
+        colorBtn.setOnClickListener(v -> {
+            onBurst();
+        });
+
+
+        redBtn.setOnClickListener(v -> {
+            this.gameAreaView.setThemeColor(Color.RED);
+        });
+
+        purpleBtn.setOnClickListener(v -> {
+            this.gameAreaView.setThemeColor(Color.parseColor("#AA66CC"));
+        });
+
+        blackBtn.setOnClickListener(v -> {
+            this.gameAreaView.setThemeColor(Color.BLACK);
+        });
     }
 
     public void updateViews() {
@@ -84,5 +117,40 @@ public class MainActivity extends AppCompatActivity {
 
     public Game getGame() {
         return this.game;
+    }
+
+    public float dpToPixels(float dp){
+        float pxPerDp = (float) getResources().getDisplayMetrics().densityDpi;
+        pxPerDp = pxPerDp / DisplayMetrics.DENSITY_DEFAULT;
+        return dp * pxPerDp;
+    }
+
+    public void onBurst(){
+        if(!this.isFABOpen){
+            showFABMenu();
+        }
+        else{
+            closeFABMenu();
+        }
+    }
+
+    public void showFABMenu(){
+        this.isFABOpen = true;
+        redBtn.animate().translationX(-dpToPixels(60));
+        purpleBtn.animate().translationX(-dpToPixels(110));
+        blackBtn.animate().translationX(-dpToPixels(160));
+        redBtn.animate().alpha(1f);
+        purpleBtn.animate().alpha(1f);
+        blackBtn.animate().alpha(1f);
+    }
+
+    public void closeFABMenu(){
+        this.isFABOpen = false;
+        redBtn.animate().translationX(0);
+        purpleBtn.animate().translationX(0);
+        blackBtn.animate().translationX(0);
+        redBtn.animate().alpha(0);
+        purpleBtn.animate().alpha(0);
+        blackBtn.animate().alpha(0);
     }
 }

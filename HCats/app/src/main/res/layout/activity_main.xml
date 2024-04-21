@@ -133,4 +133,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/moves" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editColors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        app:layout_constraintBottom_toTopOf="@id/rightBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:fabSize="normal"
+        tools:layout_editor_absoluteX="327dp"
+        tools:layout_editor_absoluteY="167dp"
+        android:contentDescription="@string/floating_description" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/redFloatingButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:alpha="0"
+        android:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="@id/editColors"
+        app:layout_constraintTop_toTopOf="@id/editColors"
+        app:layout_constraintEnd_toEndOf="@id/editColors"
+        app:fabSize="mini"
+        android:contentDescription="@string/red_description" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/purpleFloatingButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@id/editColors"
+        app:layout_constraintTop_toTopOf="@id/editColors"
+        app:layout_constraintEnd_toEndOf="@id/editColors"
+        app:fabSize="mini"
+        android:alpha="0"
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/purple_description" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blackFloatingButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@id/editColors"
+        app:layout_constraintTop_toTopOf="@id/editColors"
+        app:layout_constraintEnd_toEndOf="@id/editColors"
+        android:alpha="0"
+        android:backgroundTint="@color/black"
+        android:contentDescription="@string/black_description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

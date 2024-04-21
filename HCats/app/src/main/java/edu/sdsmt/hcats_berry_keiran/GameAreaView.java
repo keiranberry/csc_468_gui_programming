@@ -15,9 +15,8 @@ public class GameAreaView extends View {
 
     // Colors for the squares
     private static final int COLOR_WHITE = Color.WHITE;
-    private static final int COLOR_BLACK = Color.BLACK;
+    private int themeColor = Color.BLACK;
 
-    // Paint objects for drawing
     private Paint borderPaint;
     private Paint fillPaint;
     private Paint textPaint;
@@ -43,19 +42,26 @@ public class GameAreaView extends View {
 
     public void setGame(Game game) {
         this.game = game;
-        invalidate(); // Redraw view when game changes
+        invalidate();
+    }
+
+    public void setThemeColor(int color){
+        this.themeColor = color;
+        init();
+        invalidate();
     }
 
     private void init() {
         borderPaint = new Paint();
         borderPaint.setStyle(Paint.Style.STROKE);
-        borderPaint.setStrokeWidth(3);
+        borderPaint.setColor(this.themeColor);
+        borderPaint.setStrokeWidth(10);
 
         fillPaint = new Paint();
         fillPaint.setStyle(Paint.Style.FILL);
 
         textPaint = new Paint();
-        textPaint.setColor(Color.BLACK);
+        textPaint.setColor(this.themeColor);
         textPaint.setTextSize(50);
         textPaint.setTextAlign(Paint.Align.CENTER);
     }
@@ -72,8 +78,9 @@ public class GameAreaView extends View {
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
-        // Draw the grid
-        drawGrid(canvas);
+        if(!isInEditMode()){
+            drawGrid(canvas);
+        }
     }
 
     private void drawGrid(Canvas canvas) {
@@ -95,8 +102,7 @@ public class GameAreaView extends View {
 
                     canvas.drawText(String.valueOf(cats), left + (float) squareSize / 2, top + (float) squareSize / 2, textPaint);
                 } else {
-                    // setting bottom right black for now (will change with floating button)
-                    fillPaint.setColor(COLOR_BLACK);
+                    fillPaint.setColor(this.themeColor);
                     canvas.drawRect(left, top, right, bottom, fillPaint);
                 }
             }

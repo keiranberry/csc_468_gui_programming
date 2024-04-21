@@ -1,7 +1,5 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-import android.content.Context;
-
 public class LowCats extends State {
     private static final int MOVE_AMOUNT = 1;
     private static final int MOVE_PERCENT = 25;

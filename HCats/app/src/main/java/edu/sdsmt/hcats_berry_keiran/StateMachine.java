@@ -23,8 +23,6 @@ public class StateMachine {
     }
 
     public void sweepRight(){
-        System.out.println("------current state: " + this.currentState.getClass().getSimpleName());
-        System.out.println("cats caught: " + this.game.getCatsCaught());
         this.currentState.sweepRight();
     }
 

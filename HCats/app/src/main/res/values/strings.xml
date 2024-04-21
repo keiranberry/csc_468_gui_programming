@@ -1,18 +1,12 @@
 <resources>
     <string name="app_name">HCats Berry Keiran</string>
     <string name="greeting">Welcome to my program</string>
+    <string name="floating_description">Change Colors</string>
+    <string name="red_description">Red</string>
+    <string name="purple_description">Purple</string>
+    <string name="black_description">Black</string>
     <string name="text_placeholder">text</string>
-    <string name="button0_placeholder">btn0</string>
-    <string name="button1_placeholder">btn1</string>
-    <string name="button2_placeholder">btn2</string>
-    <string name="button3_placeholder">btn3</string>
-    <string name="button4_placeholder">btn4</string>
-    <string name="button5_placeholder">btn5</string>
-    <string name="button6_placeholder">btn6</string>
-    <string name="button7_placeholder">btn7</string>
-    <string name="button8_placeholder">btn8</string>
     <string name="number_placeholder">0</string>
-    <string name="description_placeholder">description</string>
     <string name="reset">Reset</string>
     <string name="treat">Treat</string>
     <string name="down">Down</string>

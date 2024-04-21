@@ -63,8 +63,6 @@ public class Game {
         this.catsCaught = this.grid[GRID_SIZE - 1][GRID_SIZE - 1];
         this.moves--;
         this.treatActive = false;
-        System.out.println("number: " + numberToMove);
-        System.out.println("percent: " + percentToMove);
     }
 
     public void sweepDown(int numberToMove, int percentToMove){
