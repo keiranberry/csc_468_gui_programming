@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         treatBtn.setOnClickListener(v -> {
-            Log.d("treatBtn", "treat button clicked");
             this.stateMachine.useTreat();
             updateViews();
         });

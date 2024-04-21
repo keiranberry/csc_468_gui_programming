@@ -32,7 +32,7 @@ public class LowCats extends State {
 
     @Override
     public void onEntry(){
-        //does nothing in this state
+        checkTransition();
     }
 
     private void checkTransition() {

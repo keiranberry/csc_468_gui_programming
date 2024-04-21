@@ -24,21 +24,8 @@
       <entry key="Tests in 'edu.sdsmt.hcats_berry_keiran'">
         <State />
       </entry>
-      <entry key="Tier1ModelTest">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\101080740\.android\avd\Pixel_2_API_28.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-19T00:32:28.513192Z" />
-        </State>
+      <entry key="Tier3e">
+        <State />
       </entry>
       <entry key="a_allCorrectButtonsAndIdsThere()">
         <State />
