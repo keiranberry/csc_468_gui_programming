@@ -57,6 +57,9 @@ public class Game implements Parcelable {
     public void setGameColor(int color) {
         this.gameColor = color;
     }
+    public boolean getTreatActive(){
+        return this.treatActive;
+    }
 
     public int getCatsAt(int row, int col) {
         if(row < GRID_SIZE && row >= 0 && col < GRID_SIZE && col >= 0) {

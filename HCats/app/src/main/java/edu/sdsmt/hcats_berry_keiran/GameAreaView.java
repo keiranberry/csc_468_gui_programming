@@ -16,6 +16,7 @@ public class GameAreaView extends View {
     // Colors for the squares
     private static final int COLOR_WHITE = Color.WHITE;
     private int themeColor = Color.BLACK;
+    private int borderColor = Color.BLACK;
 
     private Paint borderPaint;
     private Paint fillPaint;
@@ -51,11 +52,17 @@ public class GameAreaView extends View {
         invalidate();
     }
 
+    public void setBorderColor(int color){
+        this.borderColor  = color;
+        init();
+        invalidate();
+    }
+
     private void init() {
         borderPaint = new Paint();
         borderPaint.setStyle(Paint.Style.STROKE);
-        borderPaint.setColor(this.themeColor);
-        borderPaint.setStrokeWidth(10);
+        borderPaint.setColor(borderColor);
+        borderPaint.setStrokeWidth(15);
 
         fillPaint = new Paint();
         fillPaint.setStyle(Paint.Style.FILL);
@@ -69,9 +76,8 @@ public class GameAreaView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        // Update view dimensions and calculate square size
-        // Dimensions of the view and each square
-        squareSize = Math.min(w, h) / NUM_ROWS; // Assuming equal width and height
+
+        squareSize = Math.min(w, h) / NUM_ROWS;
     }
 
     @Override

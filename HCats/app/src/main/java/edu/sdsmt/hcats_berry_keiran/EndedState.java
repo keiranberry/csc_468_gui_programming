@@ -46,6 +46,11 @@ public class EndedState extends State {
         //GRADING: DIALOG
         dialog.show();
     }
+
+    @Override
+    public void onExit(){
+        //does nothing in this state
+    }
     private void checkTransition() {
         //GRADING: RESET
         this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this.mainActivity));

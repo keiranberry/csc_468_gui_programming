@@ -1,3 +1,46 @@
+/*
+____ 	Pulled the most recent unit tests at submission time, and enure they still pass
+____	    All grading tags added if the tier was reached
+
+
+Tier 1: Model		42
+_X__	Unit Tests all pass
+
+Tier 2: Connect Views		16
+_X__	Unit Tests all pass
+
+Tier 3a: State Machine/Event Rules *	36
+_X__	Framework there
+_X__	Unit Tests all pass
+
+Tier 3b: Floating Action		18
+_X__	All buttons there
+_X__	Icons set and distinguishable
+_X__	Opens/closes properly
+_X__	Player color updated.
+
+Tier 3c: Layout **	(-50% each line if fails in on orientation)	26
+_X__	Custom’s View’s aspect ratio constant
+_X__	Relative size of objects in view maintained
+_X__	Works in required screen sizes
+
+Tier 3d: Rotation		20
+_X__	Required state saved on rotation
+
+Tier 3e: Unit Test		10
+_X__	Test there
+_X__	Updated all values to support check
+_X__	Triggered rotation
+_X__	Checked all values after rotation (does NOT require passing since those points are in 3d)
+
+Tier 4: Extensions		30
+Extension 1: 1k 5pt Red border around gameArea if a treat is active:
+    Whenever a treat is active, the borders around the play area (usually black) turn red. To test,
+    just use a treat in a state which allows treats! This is done with the entry and exit functions
+    of the treatActive state.
+Extension 2: <number> <points> <name>: <how to test/find if applicable>
+*/
+
 package edu.sdsmt.hcats_berry_keiran;
 
 import android.os.Bundle;
@@ -33,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton colorBtn;
     private static final String GAME_STATE = "game_state";
 
-    //TODO: use treat activation/deactivation as entry and exit thing for state machine
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
         treatsTextView.setText(String.valueOf(game.getTreats()));
         this.gameAreaView.invalidate();
         this.gameAreaView.setThemeColor(this.game.getGameColor());
+        if(this.game.getTreatActive()){
+            this.gameAreaView.setBorderColor(Color.RED);
+        }
     }
 
     public StateMachine getStateMachine() {

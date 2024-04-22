@@ -1,13 +1,22 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import androidx.core.content.ContextCompat;
+import android.graphics.drawable.LayerDrawable;
+
 
 public class TreatActive extends State {
     private static final int MOVE_AMOUNT = 5;
     private static final int MOVE_PERCENT = 75;
 
+    private GameAreaView gameAreaView;
+
+
     public TreatActive(StateMachine stateMachine, Game game, MainActivity mainActivity) {
         super(stateMachine, game, mainActivity);
+        this.gameAreaView = mainActivity.findViewById(R.id.gameArea);
     }
 
     @Override
@@ -29,8 +38,13 @@ public class TreatActive extends State {
     }
 
     @Override
-    public void onEntry(){
-        //does nothing in this state
+    public void onEntry() {
+        this.gameAreaView.setBorderColor(Color.RED);
+    }
+
+    @Override
+    public void onExit() {
+        this.gameAreaView.setBorderColor(Color.BLACK);
     }
 
     private void checkTransition() {

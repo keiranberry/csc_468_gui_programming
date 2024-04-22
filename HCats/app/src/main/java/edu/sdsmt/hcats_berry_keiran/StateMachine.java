@@ -10,6 +10,7 @@ public class StateMachine {
     }
 
     public void setState(State state) {
+        this.currentState.onExit();
         this.currentState = state;
         this.currentState.onEntry();
     }

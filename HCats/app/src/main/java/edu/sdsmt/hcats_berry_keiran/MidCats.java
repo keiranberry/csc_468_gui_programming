@@ -37,6 +37,11 @@ public class MidCats extends State {
         checkTransition();
     }
 
+    @Override
+    public void onExit(){
+        //does nothing in this state
+    }
+
     private void checkTransition() {
         if (this.game.getMoves() < 0 || this.game.getCatsCaught() >= 40){
             this.stateMachine.setState(new EndedState(this.stateMachine, this.game, this.mainActivity));

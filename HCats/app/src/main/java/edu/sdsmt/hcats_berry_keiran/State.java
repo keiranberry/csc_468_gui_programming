@@ -17,4 +17,5 @@ public abstract class State {
     public abstract void sweepDown();
     public abstract void useTreat();
     public abstract void onEntry();
+    public abstract void onExit();
 }
