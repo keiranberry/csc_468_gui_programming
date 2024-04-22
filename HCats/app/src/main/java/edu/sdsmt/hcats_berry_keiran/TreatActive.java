@@ -1,10 +1,6 @@
 package edu.sdsmt.hcats_berry_keiran;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import androidx.core.content.ContextCompat;
-import android.graphics.drawable.LayerDrawable;
 import android.widget.Button;
 
 

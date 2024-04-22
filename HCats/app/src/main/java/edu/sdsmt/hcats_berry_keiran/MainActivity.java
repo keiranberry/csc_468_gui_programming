@@ -42,10 +42,10 @@ Extension 2: 1d 5pt Add another player appearance option: I added a fourth color
     player appearance options. It can be found in the floating menu the same as the others, and also
     persists between portrait and landscape as it should.
 Extension 3: 5a 5pt Disable treat button if there are none available: the treat button disables
-    if the number of treats left is 0 or less. This is done in the updateViews call in main.
+    if the number of treats left is 0 or less. This is done in the state machine classes.
 Extension 4: 4a 10pt Control the activation and deactivation of the treat button with the state machine:
     In the TreatActive state's entry and exit, the button for treats is disabled or enabled accordingly.
-    This can be tested by using a treat.
+    This can be tested by using a treat. Also, the button is disabled in HighCats.
 Extension 5: 1a 5pt Improve the background of the app: I created a gradient for the background of the
     application, which can be seen from both orientations. The gradient turns with the screen, so that
     the text is always contrasting the lighter gradient behind it.
@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
         if (savedInstanceState != null) {
             this.game = savedInstanceState.getParcelable(GAME_STATE);
             if (this.game != null) {
@@ -101,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
             this.stateMachine = new StateMachine(this.game);
             this.stateMachine.setState(new HighCats(this.stateMachine, this.game, this));
         }
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
         this.gameAreaView = findViewById(R.id.gameArea);
         this.gameAreaView.setGame(this.game);
         setupViews();
@@ -186,9 +186,6 @@ public class MainActivity extends AppCompatActivity {
         this.gameAreaView.setThemeColor(this.game.getGameColor());
         if(this.game.getTreatActive()){
             this.gameAreaView.setBorderColor(Color.RED);
-        }
-        if(!this.game.getTreatActive()){
-            this.treatBtn.setEnabled(this.game.getTreats() > 0);
         }
     }
 

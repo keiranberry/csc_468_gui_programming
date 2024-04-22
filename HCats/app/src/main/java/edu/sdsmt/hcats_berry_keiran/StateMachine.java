@@ -6,7 +6,7 @@ public class StateMachine {
 
     public StateMachine(Game game) {
         this.game = game;
-        this.currentState = new HighCats(this, this.game, null);
+        this.currentState = new HighCats(this, game, null);
     }
 
     public void setState(State state) {

@@ -1,5 +1,7 @@
 package edu.sdsmt.hcats_berry_keiran;
 
+import android.widget.Button;
+
 public class LowCats extends State {
     private static final int MOVE_AMOUNT = 1;
     private static final int MOVE_PERCENT = 25;
@@ -32,6 +34,10 @@ public class LowCats extends State {
 
     @Override
     public void onEntry(){
+        Button treatButton = this.mainActivity.findViewById(R.id.treatBtn);
+        if(treatButton != null){
+            treatButton.setEnabled(this.game.getTreats() > 0);
+        }
         checkTransition();
     }
 
@@ -43,6 +49,8 @@ public class LowCats extends State {
     private void checkTransition() {
         if (this.game.getMoves() < 0 || this.game.getCatsCaught() >= 40){
             this.stateMachine.setState(new EndedState(this.stateMachine, this.game, this.mainActivity));
+        } else if (this.game.getTreatActive()){
+            this.stateMachine.setState(new TreatActive(this.stateMachine, this.game, this.mainActivity));
         }
     }
 }
