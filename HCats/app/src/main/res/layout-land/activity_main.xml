@@ -190,4 +190,16 @@
         android:backgroundTint="@color/black"
         android:contentDescription="@string/black_description" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blueFloatingButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@id/editColors"
+        app:layout_constraintTop_toTopOf="@id/editColors"
+        app:layout_constraintEnd_toEndOf="@id/editColors"
+        app:layout_constraintStart_toStartOf="@id/editColors"
+        android:alpha="0"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/blue_description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

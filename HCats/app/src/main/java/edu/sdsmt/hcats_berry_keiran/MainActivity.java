@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton redBtn;
     private FloatingActionButton purpleBtn;
     private FloatingActionButton blackBtn;
-    private FloatingActionButton colorBtn;
+    private FloatingActionButton blueBtn;
     private static final String GAME_STATE = "game_state";
 
 
@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
         redBtn = findViewById(R.id.redFloatingButton);
         purpleBtn = findViewById(R.id.purpleFloatingButton);
         blackBtn = findViewById(R.id.blackFloatingButton);
-        colorBtn = findViewById(R.id.editColors);
+        blueBtn = findViewById(R.id.blueFloatingButton);
+        FloatingActionButton colorBtn = findViewById(R.id.editColors);
         colorBtn.bringToFront();
 
         Button resetBtn = findViewById(R.id.resetBtn);
@@ -160,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
             this.gameAreaView.setThemeColor(Color.BLACK);
             this.game.setGameColor(Color.BLACK);
         });
+
+        blueBtn.setOnClickListener(v -> {
+            this.gameAreaView.setThemeColor(Color.BLUE);
+            this.game.setGameColor(Color.BLUE);
+        });
     }
 
     public void updateViews() {
@@ -205,14 +211,17 @@ public class MainActivity extends AppCompatActivity {
             redBtn.animate().translationX(-dpToPixels(60));
             purpleBtn.animate().translationX(-dpToPixels(110));
             blackBtn.animate().translationX(-dpToPixels(160));
+            blueBtn.animate().translationX(-dpToPixels(210));
         } else {
             redBtn.animate().translationY(-dpToPixels(60));
             purpleBtn.animate().translationY(-dpToPixels(110));
             blackBtn.animate().translationY(-dpToPixels(160));
+            blueBtn.animate().translationY(-dpToPixels(210));
         }
         redBtn.animate().alpha(1f);
         purpleBtn.animate().alpha(1f);
         blackBtn.animate().alpha(1f);
+        blueBtn.animate().alpha(1f);
     }
 
     public void closeFABMenu(){
@@ -220,12 +229,15 @@ public class MainActivity extends AppCompatActivity {
         redBtn.animate().translationX(0);
         purpleBtn.animate().translationX(0);
         blackBtn.animate().translationX(0);
+        blueBtn.animate().translationX(0);
         redBtn.animate().translationY(0);
         purpleBtn.animate().translationY(0);
         blackBtn.animate().translationY(0);
+        blueBtn.animate().translationY(0);
         redBtn.animate().alpha(0);
         purpleBtn.animate().alpha(0);
         blackBtn.animate().alpha(0);
+        blueBtn.animate().alpha(0);
     }
 
     @Override
