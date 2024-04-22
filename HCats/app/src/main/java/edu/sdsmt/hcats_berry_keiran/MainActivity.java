@@ -1,6 +1,6 @@
 /*
-____ 	Pulled the most recent unit tests at submission time, and ensure they still pass
-____	    All grading tags added if the tier was reached
+_X__ 	Pulled the most recent unit tests at submission time, and ensure they still pass
+_X__	    All grading tags added if the tier was reached
 
 
 Tier 1: Model		42
