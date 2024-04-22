@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.core.content.ContextCompat;
 import android.graphics.drawable.LayerDrawable;
+import android.widget.Button;
 
 
 public class TreatActive extends State {
@@ -12,11 +13,13 @@ public class TreatActive extends State {
     private static final int MOVE_PERCENT = 75;
 
     private GameAreaView gameAreaView;
+    private Button treatButton;
 
 
     public TreatActive(StateMachine stateMachine, Game game, MainActivity mainActivity) {
         super(stateMachine, game, mainActivity);
         this.gameAreaView = mainActivity.findViewById(R.id.gameArea);
+        this.treatButton = mainActivity.findViewById(R.id.treatBtn);
     }
 
     @Override
@@ -40,11 +43,13 @@ public class TreatActive extends State {
     @Override
     public void onEntry() {
         this.gameAreaView.setBorderColor(Color.RED);
+        this.treatButton.setEnabled(false);
     }
 
     @Override
     public void onExit() {
         this.gameAreaView.setBorderColor(Color.BLACK);
+        this.treatButton.setEnabled(true);
     }
 
     private void checkTransition() {

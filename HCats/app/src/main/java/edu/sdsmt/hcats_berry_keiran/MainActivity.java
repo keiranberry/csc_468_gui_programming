@@ -1,5 +1,5 @@
 /*
-____ 	Pulled the most recent unit tests at submission time, and enure they still pass
+____ 	Pulled the most recent unit tests at submission time, and ensure they still pass
 ____	    All grading tags added if the tier was reached
 
 
@@ -37,8 +37,18 @@ Tier 4: Extensions		30
 Extension 1: 1k 5pt Red border around gameArea if a treat is active:
     Whenever a treat is active, the borders around the play area (usually black) turn red. To test,
     just use a treat in a state which allows treats! This is done with the entry and exit functions
-    of the treatActive state.
-Extension 2: <number> <points> <name>: <how to test/find if applicable>
+    of the treatActive state. This persists between orientations.
+Extension 2: 1d 5pt Add another player appearance option: I added a fourth color, blue, to the
+    player appearance options. It can be found in the floating menu the same as the others, and also
+    persists between portrait and landscape as it should.
+Extension 3: 5a 5pt Disable treat button if there are none available: the treat button disables
+    if the number of treats left is 0 or less. This is done in the updateViews call in main.
+Extension 4: 4a 10pt Control the activation and deactivation of the treat button with the state machine:
+    In the TreatActive state's entry and exit, the button for treats is disabled or enabled accordingly.
+    This can be tested by using a treat.
+Extension 5: 1a 5pt Improve the background of the app: I created a gradient for the background of the
+    application, which can be seen from both orientations. The gradient turns with the screen, so that
+    the text is always contrasting the lighter gradient behind it.
 */
 
 package edu.sdsmt.hcats_berry_keiran;
@@ -53,7 +63,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.res.Configuration;
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView movesTextView;
     private TextView caughtTextView;
     private TextView treatsTextView;
+    private Button treatBtn;
     private boolean isFABOpen = false;
     private FloatingActionButton redBtn;
     private FloatingActionButton purpleBtn;
@@ -117,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
         colorBtn.bringToFront();
 
         Button resetBtn = findViewById(R.id.resetBtn);
-        Button treatBtn = findViewById(R.id.treatBtn);
         Button downBtn = findViewById(R.id.downBtn);
         Button rightBtn = findViewById(R.id.rightBtn);
+        treatBtn = findViewById(R.id.treatBtn);
 
         resetBtn.setOnClickListener(v -> {
             game.reset();
@@ -176,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
         this.gameAreaView.setThemeColor(this.game.getGameColor());
         if(this.game.getTreatActive()){
             this.gameAreaView.setBorderColor(Color.RED);
+        }
+        if(!this.game.getTreatActive()){
+            this.treatBtn.setEnabled(this.game.getTreats() > 0);
         }
     }
 
