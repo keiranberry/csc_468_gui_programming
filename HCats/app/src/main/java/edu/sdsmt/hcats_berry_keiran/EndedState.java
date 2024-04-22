@@ -1,7 +1,5 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-import android.content.Context;
-
 import androidx.appcompat.app.AlertDialog;
 
 public class EndedState extends State {
@@ -27,6 +25,7 @@ public class EndedState extends State {
 
     @Override
     public void onEntry() {
+        //make and show the dialog on entry
         AlertDialog.Builder builder = new AlertDialog.Builder(this.mainActivity);
         if (this.game.isWon()) {
             builder.setTitle("You Win!");

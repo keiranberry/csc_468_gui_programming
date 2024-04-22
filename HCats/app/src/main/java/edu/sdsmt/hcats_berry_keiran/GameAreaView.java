@@ -13,7 +13,6 @@ public class GameAreaView extends View {
     private static final int NUM_ROWS = 3;
     private static final int NUM_COLS = 3;
 
-    // Colors for the squares
     private static final int COLOR_WHITE = Color.WHITE;
     private int themeColor = Color.BLACK;
     private int borderColor = Color.BLACK;

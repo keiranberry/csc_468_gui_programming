@@ -72,6 +72,7 @@ public class Game implements Parcelable {
 
     public void sweepRight(int numberToMove, int percentToMove){
         double percentNumber = (double) percentToMove / 100;
+        //start at the right col and work left
         for(int i = GRID_SIZE - 2; i >= 0; i--){
             for(int j = 0; j < GRID_SIZE; j++){
                 int numberFromPercent = (int) Math.floor(percentNumber * this.grid[i][j]);
@@ -89,6 +90,7 @@ public class Game implements Parcelable {
 
     public void sweepDown(int numberToMove, int percentToMove){
         double percentNumber = (double) percentToMove / 100;
+        //start at the bottom row and work up
         for(int i = 0; i < GRID_SIZE; i++){
             for(int j = GRID_SIZE - 2; j >= 0; j--){
                 int numberFromPercent = (int) Math.floor(percentNumber * this.grid[i][j]);

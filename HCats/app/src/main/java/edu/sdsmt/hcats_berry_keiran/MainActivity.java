@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView movesTextView;
     private TextView caughtTextView;
     private TextView treatsTextView;
-    private Button treatBtn;
     private boolean isFABOpen = false;
     private FloatingActionButton redBtn;
     private FloatingActionButton purpleBtn;
@@ -129,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         Button resetBtn = findViewById(R.id.resetBtn);
         Button downBtn = findViewById(R.id.downBtn);
         Button rightBtn = findViewById(R.id.rightBtn);
-        treatBtn = findViewById(R.id.treatBtn);
+        Button treatBtn = findViewById(R.id.treatBtn);
 
         resetBtn.setOnClickListener(v -> {
             game.reset();
@@ -152,9 +151,7 @@ public class MainActivity extends AppCompatActivity {
             updateViews();
         });
 
-        colorBtn.setOnClickListener(v -> {
-            onBurst();
-        });
+        colorBtn.setOnClickListener(v -> onBurst());
 
 
         redBtn.setOnClickListener(v -> {

@@ -1,6 +1,5 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-import android.content.Context;
 import android.widget.Button;
 
 public class MidCats extends State {

@@ -1,7 +1,5 @@
 package edu.sdsmt.hcats_berry_keiran;
 
-import android.content.Context;
-
 public abstract class State {
     protected StateMachine stateMachine;
     protected Game game;

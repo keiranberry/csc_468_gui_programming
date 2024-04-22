@@ -22,7 +22,20 @@
         <State />
       </entry>
       <entry key="Tests in 'edu.sdsmt.hcats_berry_keiran'">
-        <State />
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\101080740\.android\avd\Pixel_2_API_28_4.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-22T03:31:19.062205Z" />
+        </State>
       </entry>
       <entry key="Tier3e">
         <State />
@@ -38,12 +51,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\101080740\.android\avd\Pixel_2_API_28_2.avd" />
+                  <value value="C:\Users\101080740\.android\avd\Nexus_10_API_34.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-17T03:09:57.843308900Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-22T03:17:43.238986600Z" />
         </State>
       </entry>
     </value>

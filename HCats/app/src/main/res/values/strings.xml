@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">HCats Berry Keiran</string>
-    <string name="greeting">Welcome to my program</string>
     <string name="floating_description">Change Colors</string>
     <string name="red_description">Red</string>
     <string name="purple_description">Purple</string>
     <string name="black_description">Black</string>
     <string name="blue_description">Blue</string>
-    <string name="text_placeholder">text</string>
     <string name="number_placeholder">0</string>
     <string name="reset">Reset</string>
     <string name="treat">Treat</string>
